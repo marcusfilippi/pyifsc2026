@@ -42,5 +42,7 @@ while True:
            codigos [contadornum] = x
            contadornum = contadornum + 1
            print ("Código cadastrado com sucesso!")
+          else:
+              print("Não é possível adicionar um código igual a -1.")
          else:
              print("10 códigos já armazenados. Você chegou no limite!")
