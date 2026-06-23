@@ -42,6 +42,7 @@ while True:
                       contplacas = contplacas+1
                       break
                   x = x + 1
+              x = 0
              else:
                  print("Não é possível adicionar um código igual a 0.")
          else:
@@ -50,10 +51,25 @@ while True:
     elif opcao == 2:
            codigoaniquilado = int(input("Digite o código a ser excluído:"))
 
+           excluiu = False 
            while p <=14:
                if placas[p] == codigoaniquilado:
                    placas [p] = 0
+                   excluiu = True
                    break
                p = p +1
+           if excluiu:
+               print("Excluiu mesmo") 
+           else:
+               print("Código não encontrado")
+    elif opcao == 3:
+           print ("Listando...")
+         while p <= contadornum-1:
+              if codigos[p] == -1:
+                  break
+              else:
+               print(f"Produto: {p}. Código: {placas[p]}")
+               p = p+1
+         print ("Fim da lista.")
             
                 
