@@ -64,12 +64,12 @@ while True:
                print("Código não encontrado")
     elif opcao == 3:
            print ("Listando...")
-         while p <= contadornum-1:
-              if codigos[p] == -1:
+           while p <= contplacas-1:
+              if placas[p] == -1:
                   break
               else:
                print(f"Produto: {p}. Código: {placas[p]}")
                p = p+1
-         print ("Fim da lista.")
+           print ("Fim da lista.")
             
                 
