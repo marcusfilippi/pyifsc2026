@@ -29,4 +29,18 @@ while True:
        amigos.append (str(input("Digite o nome do amigo a ser adicionado: ")))
 
     elif opcao == 2:
-        
+        amigoaniquilado = str(input("Digite o Nome do amigo que você quer excluir: "))
+        if amigoaniquilado in amigos:
+            print(f"Tem {amigoaniquilado}, excluindo...")
+            amigos.remove(amigoaniquilado)
+        else:
+            print(f"Não tem {amigoaniquilado}, não dá pra excluir.")
+
+    elif opcao == 3:
+        if not amigos:
+            print ("Sua lista de amigos está vazia.")
+        else:
+            print("Listando...")
+            print (amigos)
+            print ("Fim da lista.")
+          
