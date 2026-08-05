@@ -37,15 +37,85 @@ Fabiana;
 • Lab107 – Prof André, Prof Schalata, Prof Thiago Waltrik, Prof Thiago Paes, Prof
 João Eduardo.'''
 
-profs = {   '001' : "Prof Thiago Paes"
-            '002' : "Prof Schalata"
-            '003' : "Prof Ignácio"
-            '004' : "Prof Ryan"
-            '005' : "Prof André"
-            '006' : "Profª Fabiana"
-            '007' : "Prof Alberto"
-            '008' : "Prof Juliano"
-            '009' : "Prof Thiago Waltrik"
+profs = {   '001' : "Prof Thiago Paes",
+            '002' : "Prof Schalata",
+            '003' : "Prof Ignácio",
+            '004' : "Prof Ryan",
+            '005' : "Prof André",
+            '006' : "Profª Fabiana",
+            '007' : "Prof Alberto",
+            '008' : "Prof Juliano",
+            '009' : "Prof Thiago Waltrik",
             '010' : "Prof João Eduardo"}
 
-print (profs)
+lab102 = ['003', '001', '004', '005', '006']
+
+lab103 = ['007']
+
+lab104 = ['004','002', '008', '005']
+
+lab105 = ['003','001', '007', '009']
+
+lab106 = ['003','001','002','009']
+
+lab107 = ['010','001','009','005','002']
+
+while True:
+    print("Acesso a laboratórios:")
+    print("-----------")
+    print("1 – Cadastrar")
+    print("2 – Excluir")
+    print("3 – Listar")
+    print("4 – Alterar")
+    print("5 - Teste de acesso")
+    print("6 - Alterar acesso laboratórios:")
+    print("7 - Excluir acesso laboratórios:")
+    print("8 - Listar acesso laboratórios:")
+    print("9 - Cadastrar acesso laboratórios:")
+    print("0 – Sair")
+    
+    opcao = int(input("Digite a opção que você quer:"))
+    
+    if opcao == 0:
+        break
+    
+    elif opcao == 1:
+        
+        novcas = str(input("Digite o código do novo cadastrado:")).zfill(3)
+        if novcas in profs:
+               print ("Código já existente, tente outro")
+        else:
+               nomecas = str(input("Digite o nome do novo cadastrado"))
+               profs[novcas] = nomecas
+            
+        
+    elif opcao == 2:
+      codaniquilado = str(input("Digite o código que você quer excluir:"))
+      if codaniquilado in profs:
+            del profs[codaniquilado]
+            print ("Excluido com sucesso.")
+      else:
+            print("Código não encontrado, tente outro")
+    
+    elif opcao == 3:
+        for codigo, nome in profs.items():
+            print(f'{codigo} - {nome}')
+        
+    elif opcao == 4:
+        codalterado = str(input("Digite o código a ser alterado"))
+         if codalterado in profs:
+             print ("1- Alterar código")
+             print ("2- Alterar nome")
+             opcaoalterar = int(input("Digite a opção que vocẽ deseja:"))
+             
+             if opcaoalterar == 1:
+                 
+    elif opcao == 5:
+         print("1 – lab102")
+         print("2 – lab103")
+         print("3 – lab104")
+         print("4 – lab105")
+         print("5 - lab106")
+        codtestar = int(input("Digite o laboratório a ser testado:"))
+          if 
+         
