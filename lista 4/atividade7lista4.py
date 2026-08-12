@@ -23,7 +23,7 @@ while True:
     print("2 – Excluir")
     print("3 – Listar")
     print("4 – Calcular média")
-    print("5- Mostrar maio nota")
+    print("5- Mostrar maior nota")
     print("6 - Mostrar menor nota")
     print("0 – Sair")
 
