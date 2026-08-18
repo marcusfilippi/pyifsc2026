@@ -134,9 +134,9 @@ while True:
             veiculos[novcas] = nomecas
 
     elif opcao == 7:
-        codveiculosaiu = str(input("Digite o código do veículo que saiu"))
+        codveiculosaiu = str(input("Digite o código do veículo que saiu")).zfill(3)
         if codveiculosaiu in veiculos:
-             codcondutorsaiu = str(input("Digite o código do condutor que saiu"))
+             codcondutorsaiu = str(input("Digite o código do condutor que saiu")).zfill(3)
              if codcondutorsaiu in condutores:
                 datasaida = str(input("Digite a data de saída do caminhão(DD/MM/AAAA:)"))
                 horasaida = str(input("Digite a hora de saída(HH/MM):"))
@@ -147,12 +147,14 @@ while True:
                         "data_retorno": None,
                         "hora_retorno": None}
                 saidas.append (saida)
+        else:
+            print ("Veiculo não encontrado")
 
     elif opcao == 8:
-        codveiculoretorno = str(input("Digite o código do veículo que retornou"))
-        codcondurretorno = str(input("Digite o código do condutor que retornou"))
+        codveiculoretorno = str(input("Digite o código do veículo que retornou")).zfill(3)
+        codcondurretorno = str(input("Digite o código do condutor que retornou")).zfill(3)
         for s in saidas:
-            if s['veiculo'] == codveiculoretorno and s['condutor'] == codcondurretorno:
+            if s['veiculo'] == codveiculoretorno and s['condutor'] == codcondurretorno and s['data_retorno'] is None:
                 dataretorno = str(input("Digite a data que o veiculo retornou(DD/MM/AAAA)"))
                 horaretorno = str(input("Digite a hora que o veiculo retornou (HH/MM)"))
                 s['data_retorno'] = dataretorno
@@ -160,36 +162,39 @@ while True:
                 print ("Registrado com sucesso!")
         
     elif opcao == 9 :
-        codhistorico = str(input("Digite o código do veículo que vocẽ deseja ver o histórico: "))
+        codhistorico = str(input("Digite o código do veículo que vocẽ deseja ver o histórico: ")).zfill(3)
         for s in saidas:
            if s['veiculo'] == codhistorico:
                     print (f"Veiculo: {s['veiculo']}")
-                    print (f"Condutor: {s['condutor']}")
+                    print (f"Condutor: {condutores[s['condutor']]}")
                     print (f"Data de saída: {s['data_saida']}")
                     print (f"Hora da saída: {s['hora_saida']}")
                     print (f"Data de retorno: {s['data_retorno']}")
                     print (f"Hora de retorno: {s['hora_retorno']}")
+                    if s['data_retorno'] is None:
+                        print("Veiculo ainda não retornou")
+                    else:
+                        print("Veiculo retornou")
 
     elif opcao == 10:
         diaverificar = str(input("Digite a data que você quer verificar as entregas(DD/MM/AAAA): "))
         todos_retornaram = True
         for s in saidas:
-         if s['data_saida'] == diaverificar:
-                if s['data_saida'] == diaverificar:
-                    print (f"Veiculo: {s['veiculo']}")
-                    print (f"Condutor: {s['condutor']}")
-                    print (f"Data de saída: {s['data_saida']}")
-                    print (f"Hora da saída: {s['hora_saida']}")
-                    print (f"Data de retorno: {s['data_retorno']}")
-                    print (f"Hora de retorno: {s['hora_retorno']}")
+         if s['data_retorno'] == diaverificar:
+                print (f"Veiculo: {s['veiculo']}")
+                print (f"Condutor: {condutores[s['condutor']]}")
+                print (f"Data de saída: {s['data_saida']}")
+                print (f"Hora da saída: {s['hora_saida']}")
+                print (f"Data de retorno: {s['data_retorno']}")
+                print (f"Hora de retorno: {s['hora_retorno']}")
 
          if s['data_saida'] == diaverificar:
                 if s['data_retorno'] is None:
                  todos_retornaram = False
 
-                 if todos_retornaram:
+        if todos_retornaram:
                   print("Todas as entregas do dia foram realizadas!")
-                 else:
+        else:
                   print("Ainda existem caminhões que não retornaram.")
 
 
