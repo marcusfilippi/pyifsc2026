@@ -11,17 +11,27 @@ class Produto:
         self.nome = nome
         self.quantidade = quantidade
         
-    def esta_disponivel(self, i):
+    def esta_disponivel(self):
         if self.quantidade>0:
             i = True
+        else:
+            i = False
+        return i
         
     def vender(self):
         self.quantidade = self.quantidade-1
+        return f"A quantidade atual é {self.quantidade}"
         
 n = input("Nome: ")
-q = float(input("Quantidade: "))
+q = int(input("Quantidade: "))
 
 produto1  = Produto(n, q)
-produto1.
-conta1.depositar(deposito)
-print(conta1.mostrar_saldo())
+if produto1.esta_disponivel():
+    print ("está")
+else:
+    print ("não está")
+print (produto1.vender())
+if produto1.esta_disponivel():
+    print ("está")
+else:
+    print ("não está")

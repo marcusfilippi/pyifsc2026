@@ -13,6 +13,9 @@ class ContaBancaria:
         
     def depositar(self, deposito):
         self.saldo = self.saldo +deposito
+        
+    def sacar(self, saque):
+        self.saldo = self.saldo - saque
     
     def mostrar_saldo(self):
         return f"O seu saldo atual é {self.saldo}"
@@ -25,4 +28,6 @@ s = float(input("Saldo: "))
 conta1  = ContaBancaria(t,s)
 deposito = float(input("Digite o valor do deposito: "))
 conta1.depositar(deposito)
+saque = float(input("Digite o valor do saque: "))
+conta1.sacar(saque)
 print(conta1.mostrar_saldo())

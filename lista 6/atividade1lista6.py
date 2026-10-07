@@ -8,7 +8,7 @@ class Livro:
         self.titulo = titulo
         self.autor = autor
     def apresentar(self):
-        return f"O nome do professor é {self.nome} {self.sobrenome} e sou professor de {self.especializacao}"  
+        return f"{self.titulo} foi escrito por {self.autor}."  
 
 l = input("Livro: ")
 a = input("Autor: ")
