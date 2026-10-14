@@ -84,13 +84,63 @@ while True:
             print(e.apresentarp())
             
     elif opcao == 5:
-        atualizar = input("Digite o nome do estudante que você deseja atualizar: ")
-        for e in estudantes:
-            if e.nome == atualizar:
-                i = int(input("Digite a nova idade: "))
-                a = float(input("Digite a nova altura: "))
-                p = float(input("Digite o novo peso: "))
-                e.peso = p 
-                e.altura = a
-                e.idade = i
-                print ("Dados atualizados com sucesso")
+
+        matricula = input("Digite a matrícula do estudante: ")
+        for i in estudantes:
+            if i.matricula == matricula:
+                i.nome = input("Digite o novo nome: ")
+                i.idade = int(input("Digite a nova idade: "))
+                i.sobrenome = input("Digite o novo sobrenome: ")
+                print("Atualizado com sucesso")
+                break
+
+    elif opcao == 6:
+
+        nome = input("Digite o nome do estudante: ")
+        for i in estudantes:
+            if i.nome == nome:
+                i.matricula = input("Digite a nova matrícula: ")
+                i.idade = int(input("Digite a nova idade: "))
+                i.sobrenome = input("Digite o novo sobrenome: ")
+                print("Estudante atualizado!")
+                break
+
+    elif opcao == 7:
+
+        matricula = input("Digite a matrícula do professor: ")
+        for i in professores:
+            if i.matricula == matricula:
+                i.nome = input("Digite o novo nome: ")
+                i.idade = int(input("Digite a nova idade: "))
+                i.especializacao = input("Digite a nova especialização: ")
+                print("Professor atualizado!")
+                break
+
+    elif opcao == 8:
+
+        nome = input("Digite o nome do professor: ")
+        for i in professores:
+            if i.nome == nome:
+                i.matricula = input("Digite a nova matrícula: ")
+                i.idade = int(input("Digite a nova idade: "))
+                i.especializacao = input("Digite a nova especialização: ")
+                print("Professor atualizado!")
+                break
+
+    elif opcao == 9:
+
+        matricula = input("Digite a matrícula do estudante: ")
+        for i in estudantes:
+            if i.matricula == matricula:
+                estudantes.remove(i)
+                print("Estudante excluído!")
+                break
+
+    elif opcao == 10:
+
+        matricula = input("Digite a matrícula do professor: ")
+        for i in professores:
+            if i.matricula == matricula:
+                professores.remove(i)
+                print("Professor excluído!")
+                break
