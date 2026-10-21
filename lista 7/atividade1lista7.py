@@ -23,8 +23,49 @@ class Livro:
     def __init__(self, titulo, total_paginas):
         self.titulo = titulo
         self.total_paginas = total_paginas
+        self.marcador = None
+        
+    def __repr__(self):
+        return f"Titulo: {self.titulo}. Páginas: {self.total_paginas}"
         
     def adicionar_marcador(self, pagina_atual):
+        if self.marcador:
+            if pagina_atual<= self.total_paginas and pagina_atual>=0:
+             self.marcador.pagina_atual = pagina_atual
+        else:
+            if pagina_atual<= self.total_paginas and pagina_atual>=0:
+             self.marcador = MarcadorDePagina(pagina_atual)
+            
+t = input("Digite o titulo do seu livro: ")
+tp = int(input("Digite o total de páginas do livro: "))
+livro = Livro(t, tp)
+print(livro)
+
+# primeiro teste
+if livro.marcador:
+    print(livro.marcador)
+else:
+    print ("O livro não tem marcador")
+    
+#segundo teste
+i = int(input("Digite a página atual que vocẽ está no seu livro: "))
+livro.adicionar_marcador(i)
+
+if livro.marcador:
+    print(livro.marcador)
+else:
+    print ("O livro não tem marcador")
+    
+#terceiro teste
+            
+i = int(input("Digite a página atual que você está no seu livro: "))
+livro.adicionar_marcador(i)
+
+if livro.marcador:
+    print(livro.marcador)
+else:
+    print ("O livro não tem marcador")
+            
     
         
         
