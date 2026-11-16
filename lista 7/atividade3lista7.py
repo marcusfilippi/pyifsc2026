@@ -39,16 +39,17 @@ class VagaDeEstacionamento:
     def liberar_vaga(self):
         self.carro_estacionado=None
         
-carros = []        
+carros = []    
+vaga = VagaDeEstacionamento("vaga1")
         
 while True:
     print ("Vaga Estacionamento")
     print ("-------------------")
     print ("1 – Cadastrar carro")
     print ("2 – Listar carro")
-    print ("4 – Estacionar carro")
-    print ("5 – Liberar vaga")
-    print ("6 – Consultar vaga")
+    print ("3 – Estacionar carro")
+    print ("4 – Liberar vaga")
+    print ("5 – Consultar vaga")
     print ("0 – Sair")
     
     opcao = int(input("Digite a opção que você deseja: "))
@@ -59,11 +60,36 @@ while True:
     elif opcao == 1:
         p = input("Digite a placa do carro: ")
         m = input("Digite o modelo do carro: ")
-        carros.append = Carro(p,m)
+        carros.append(Carro(p,m))
         
     elif opcao == 2:
         print (carros)
         
     elif opcao ==3:
-        
-        
+        if len(carros) == 0:
+            print("não existem carros cadastrados")
+        else:
+            for i in range(len(carros)):
+                print(i, "-", carros[i])
+
+            escolha = int(input("digite o numero do carro que voce quer estacionar: "))
+
+            if escolha >= 0 and escolha < len(carros):
+                resultado = vaga.ocupar_vaga(carros[escolha])
+
+                if resultado == True:
+                    print("Carro estacionado com sucesso!")
+                else:
+                    print("A vaga já está ocupada!")
+            else:
+                print("Opção invalida, tente novamente")
+
+    elif opcao == 4:
+        vaga.liberar_vaga()
+        print ("Vaga liberada!")   
+
+    elif opcao == 5:
+        if vaga.carro_estacionado == None:
+            print("A vaga esta vazia")
+        else:
+            print("A vaga está ocupada")     
